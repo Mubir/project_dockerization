@@ -1,0 +1,18 @@
+# start and link the containers
+version: '3'
+
+services:
+    web:
+        # build the current folder
+        build: .
+        # python manage.py runserver == default commad of django to run project
+        # 0.0.0.0 == canbe access by any ip address
+        command: python manage.py runserver 0.0.0.0:8000
+        # volumes for preserving data
+        # host : container
+        volumes: 
+            - .:/app
+        # host: container
+        ports: 
+            - "8000:8000"
+        
